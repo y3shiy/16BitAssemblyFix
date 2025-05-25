@@ -13524,7 +13524,7 @@ var CPUService = /** @class */ (function () {
         return true;
     };
     CPUService.prototype.instrJMP_REGADDRESS = function (toAddress) {
-        this.IP.value = toAddress;
+        this.IP.value = this.memoryService.loadWord(toAddress);
         return false;
     };
     CPUService.prototype.instrJMP_ADDRESS = function (toAddress) {
@@ -13533,7 +13533,7 @@ var CPUService = /** @class */ (function () {
     };
     CPUService.prototype.instrJC_REGADDRESS = function (toAddress) {
         if (this.SR.carry === 1) {
-            this.IP.value = toAddress;
+            this.IP.value = this.memoryService.loadWord(toAddress);
             return false;
         }
         else {
@@ -13551,7 +13551,7 @@ var CPUService = /** @class */ (function () {
     };
     CPUService.prototype.instrJNC_REGADDRESS = function (toAddress) {
         if (this.SR.carry === 0) {
-            this.IP.value = toAddress;
+            this.IP.value = this.memoryService.loadWord(toAddress);
             return false;
         }
         else {
@@ -13569,7 +13569,7 @@ var CPUService = /** @class */ (function () {
     };
     CPUService.prototype.instrJZ_REGADDRESS = function (toAddress) {
         if (this.SR.zero === 1) {
-            this.IP.value = toAddress;
+            this.IP.value = this.memoryService.loadWord(toAddress);
             return false;
         }
         else {
@@ -13587,7 +13587,7 @@ var CPUService = /** @class */ (function () {
     };
     CPUService.prototype.instrJNZ_REGADDRESS = function (toAddress) {
         if (this.SR.zero === 0) {
-            this.IP.value = toAddress;
+            this.IP.value = this.memoryService.loadWord(toAddress);
             return false;
         }
         else {
@@ -13605,7 +13605,7 @@ var CPUService = /** @class */ (function () {
     };
     CPUService.prototype.instrJA_REGADDRESS = function (toAddress) {
         if ((this.SR.carry === 0) && (this.SR.zero === 0)) {
-            this.IP.value = toAddress;
+            this.IP.value = this.memoryService.loadWord(toAddress);
             return false;
         }
         else {
@@ -13623,7 +13623,7 @@ var CPUService = /** @class */ (function () {
     };
     CPUService.prototype.instrJNA_REGADDRESS = function (toAddress) {
         if ((this.SR.carry === 1) || (this.SR.zero === 1)) {
-            this.IP.value = toAddress;
+            this.IP.value = this.memoryService.loadWord(toAddress);
             return false;
         }
         else {
@@ -18882,3 +18882,4 @@ module.exports = __webpack_require__(/*! /home/domen/asm/src/main.ts */"./src/ma
 
 },[[0,"runtime","vendor"]]]);
 //# sourceMappingURL=main.js.map
+
